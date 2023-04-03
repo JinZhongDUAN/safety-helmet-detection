@@ -1,0 +1,73 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">安全帽检测</a>
+        </div>
+        <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('home') }}">网站首页</a></li>
+                <li class="{% if current_user.is_authenticated %}active{% endif %}"><a href="{{ url_for('index') }}">用户首页</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a id="Date" style="color: white"></a></li>
+
+                {% if current_user.is_authenticated %}
+                <li><a>欢迎{{current_user.username}}</a></li>
+                <li><a href="{{ url_for('logout') }}">退出</a></li>
+                {% else %}
+                <li class="{% if request.endpoint=='login' %}active{% endif %}"><a href="{{ url_for('login') }}">登录</a></li>
+                <li class="{% if request.endpoint=='register' %}active{% endif %}"><a href="{{ url_for('register') }}">注册</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        setInterval(function(){
+        var date = new Date();
+        var year = date.getFullYear();    //获取当前年份
+        var mon = date.getMonth()+1;      //获取当前月份
+        var da = date.getDate();          //获取当前日
+        var day = date.getDay();          //获取当前星期几
+            switch (day){
+                case 0:{
+                  strDate = "星期日"
+                }break;
+                case 1:{
+                  strDate = "星期一"
+                }break;
+                case 2:{
+                  strDate ="星期二"
+                }break;
+                case 3:{
+                  strDate = "星期三"
+                }break;
+                case 4:{
+                  strDate = "星期四"
+                }break;
+                case 5:{
+                  strDate = "星期五"
+                }break;
+                case 6:{
+                  strDate = "星期六"
+                }break;
+                case 7:{
+                  strDate = "星期日"
+                }break;
+            }
+        var h = date.getHours();          //获取小时
+        var m = date.getMinutes();        //获取分钟
+        var s = date.getSeconds();        //获取秒
+        var d = document.getElementById('Date');
+          d.innerHTML=year+'年'+mon+'月'+da+'日'+strDate+' '+h+':'+m+':'+s;
+        },1000)
+    </script>
+</nav>
+

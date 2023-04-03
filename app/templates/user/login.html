@@ -1,0 +1,90 @@
+{% extends 'common/base.html' %}
+{% block title %}
+    Login
+{% endblock title %}
+
+{%- block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}" />
+    <style>
+        input[type=button], input[type=submit] {
+            -webkit-appearance: button;
+            cursor: pointer;
+            width: 130px;
+        }
+        .form-horizontal .form-group {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+        .form-code {
+            display: inline;
+            width: 170px;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+    </style>
+{%- endblock styles %}
+
+{% block app_content %}
+<div>
+    <h1 align="center" style="margin-top: 150px; color: white" >登录</h1>
+    <h5 align="center"><a href="/register" style="color: white">新用户注册</a></h5>
+    <div align="center">
+        <div align="left" style="width: 280px; height: 150px; color: white">
+
+        <!--<form action="" method="post" class="form" role="form">
+            &lt;!&ndash;input id="csrf_token" name="csrf_token" type="hidden" value="IjkyOGZkOGUwZTI3YmQwYTYzY2EwNDExM2I2MzM4ODMxMDQ1NjkyYzgi.YFx8qg.7eStT-NKwJyJrCoPgZmEdsf7kV8"&ndash;&gt;
+            <div class="form-group  required"><label class="control-label" for="username">账号</label>
+                <input class="form-control" id="username" name="username" required type="text" value="">
+            </div>
+            <div class="form-group  required"><label class="control-label" for="password">密码</label>
+                <input class="form-control" id="password" name="password" required type="password" value="">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input id="remember" name="remember" type="checkbox" value="y"> 记住我
+                </label>
+                <a href="/send_password_reset_request" style="color: white" class="col-md-offset-2">忘记密码</a>
+            </div>
+            <input class="btn btn-default" id="submit" style="width: 140px" name="submit" type="submit" value="登录">
+            <input class="btn btn-default" id="reset" style="width: 140px; margin-left: 15px" name="reset" type="reset" value="取消">
+            {{ form.csrf_token }}
+        </form>-->
+            <form class="form form-horizontal" method="post" role="form">
+                {% import 'bootstrap/wtf.html' as wtf %}
+                {{ form.hidden_tag() }}
+                {{ wtf.form_errors(form, hiddens="only") }}
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.password) }}
+                <div class="form-group  required">
+                    <label class="control-label" for="verify_code">验证码</label><br>
+                    <input class="form-code" id="verify_code" name="verify_code" required="" type="text" value="" style="background-color: rgb(246, 244, 236)">
+                    <img align="right" class="verify_code" src="/code" onclick="this.src='/code?'+ Math.random()" style="width: 100px; height: 34px">
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input id="remember" name="remember" type="checkbox" value="y"> 记住我
+                    </label>
+                    <a href="/send_password_reset_request" style="color: white" class="col-md-offset-2">忘记密码</a>
+                </div><br>
+                {{ wtf.form_field(form.submit) }}
+                <input class="btn btn-default" id="reset" style="width: 130px; margin-left: 15px" name="reset" type="reset" value="取消">
+            </form>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock app_content %}
+

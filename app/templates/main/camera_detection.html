@@ -1,0 +1,32 @@
+<link href="{{ url_for('static', filename='css/imgdet.css') }}" rel="stylesheet">
+<h1 class="page-header" align="center" style="margin-top: 5px">欢迎使用安全帽检测系统</h1>
+<h4 align="center"><strong>摄像头检测</strong><br></h4>
+<div align="center">
+	<img src="/static/img/file_load.png" id="upload" style="width: 750px; height: 421px; background-color: #eeedcb">
+    <div>
+        <button class="button_style" onclick="openMediaStreamed()">开启</button>
+        <button class="button_style" onclick="stopMediaStreamed()">关闭</button>
+    </div>
+</div>
+<script type="text/javascript">
+    function openMediaStreamed() {
+        $('#upload').attr('src', "{{url_for('camera_detection_action')}}");
+        alert("资源加载中，请等待一会儿！")
+    }
+    function stopMediaStreamed() {
+        $.ajax({
+            url:"{{ url_for('camera_detection_end') }}",
+            type:"post",
+            dataType:'json',
+			processData: false,
+    		contentType: false,
+            success:function(data){
+                console.log(data.save_result);
+            },
+            error:function(e){
+                 alert("请求出错！");
+            }
+        })
+        $('#upload').attr('src', "/static/img/file_load.png");
+    }
+</script>

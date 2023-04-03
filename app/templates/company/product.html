@@ -1,0 +1,104 @@
+{% extends 'common/base.html' %}
+{%- block styles %}
+    {{super()}}
+    <style>
+        #tp1,#tp2,#tp3,#tp4,#tp5{
+            text-align: justify;
+            text-indent: 36px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        #th1,#th2{
+            font-weight: bold;
+        }
+        #p1{
+            position: absolute;
+            left: 150px;
+            top: 150px;
+            color: white;
+        }
+        #p2{
+            position: absolute;
+            left: 150px;
+            top: 210px;
+            color: white;
+        }
+    </style>
+{%- endblock styles %}
+
+{% block navbar %}
+    {% include 'common/homeheader.html' %}
+{%- endblock navbar %}
+
+{% block content -%}
+<div style="position: relative" align="center">
+    <img src="/static/img/product_bg.jpg" alt="图片加载失败！" width="1519" height="400" >
+    <p id="p1" style="font-size: 30px">用卓越的智能视觉算法赋能商业</p>
+    <p id="p2" style="font-size: 20px">基于正觉智能自主研发的AI视频图像分析算法，
+        提供软硬一体交付形态，为工厂提供基于AI识别模型的智能服务</p>
+</div>
+
+<div>
+    <h1 align="center">产品简介</h1><br>
+    <h4 id="th1" align="center">产品介绍</h4><br>
+
+    <div class="container marketing">
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">智能视觉分析平台</h2>
+          <p id="tp1">视频图像智能分析系统利用视频智能分析技术，自动识别出视频图像中的影响质量、有安全隐患的人事物，助力企业节省人力成本，降低安全隐患，提升管理效率。</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="/static/img/product_one.jpg" alt="图片加载失败！">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">智能化视频识别一体机</h2>
+          <p id="tp2">智能化一体机采用先进的视频图像分析技术，内置AI业务平台及多种高精度的AI识别算法，无需人工干预，可自动识别人的不安全行为、物的不安全状态。</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="/static/img/product_two.jpg" alt="图片加载失败！">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">正觉智能管理平台</h2>
+          <p id="tp3">基于计算机视觉技术，依靠深度学习算法，赋能现有视频监控系统，面向企业提供视频智能识别分析的综合性管理系统。通过对监控视频图像的智能分析，捕捉特定目标，提取需求属性，识别违规现象，做到事前预警、 事中管控、事后取证。</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="/static/img/product_three.jpg" alt="图片加载失败！">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+       <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">模型训练平台</h2>
+          <p id="tp4">基于主流深度学习训练框架，为用户提供从智能安全的数据服务、高效便捷的模型定制到全面丰富的部署方式的一站式服务，零算法基础也可快速定制出高精度图像AI模型。聚焦垂直领域，深耕多个行业，在不断积累行业数据的同时，深入研发领域行业专用的模型及算法，为企业提供可靠、稳定、持续响应的服务能力。</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="/static/img/product_four.jpg" alt="图片加载失败！">
+        </div>
+      </div>
+    </div>
+    <br>
+    <h4 id="th2" align="center">产品优势</h4><br>
+    <div class="container" style="position: relative">
+        <p id="tp5">视频分析算法的三高（算力消耗高，素材数量高，人才成本高）是当前大面积应用的瓶颈，富维经过几年的潜心研究，将算法对算力的要求降到最低，使得普遍应用成为可能；富维人独创的自制训练素材方法，解决了需要采集大量素材才能够训练出模型的问题。每个算法都经过工程师的反复测试，又经受了若干项目的应用考验，已成为行业首选。</p>
+        <img src="/static/img/product_bg2.jpg" width="1140">
+        <p style="position: absolute; left: 200px; top: 280px; color: white; font-size: 25px">相信我们绝对的实力</p>
+    </div>
+    <br>
+</div>
+{% include "common/footer.html" %}
+{%- endblock content%}

@@ -1,0 +1,168 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}
+    Flask App
+{% endblock title %}
+
+{%- block metas %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{%- endblock metas %}
+
+{%- block styles %}
+    {{super()}}
+    <link href="{{ url_for('static', filename='css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/carousel.css') }}" rel="stylesheet">
+    <style>
+      #img_1,#img_2,#img_3{
+        width: 1920px;
+        height: 760px;
+      }
+      #th1,#th2{
+            font-weight: bold;
+            font-size: 30px;
+        }
+    </style>
+{%- endblock styles %}
+
+{% block navbar %}
+  {% include 'common/homeheader.html' %}
+{%- endblock navbar %}
+
+{% block content -%}
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img id="img_1" class="first-slide" src="{{ url_for('static', filename='img/carousel_one.jpg') }}" alt="图片加载失败！">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>高精度检测算法，检测更准确</h1>
+              <p>支持私有化部署和定制化开发，部署简单、精准识别、实时分析、安全稳定</p>
+              <p><a class="btn btn-lg btn-primary" href="{{ url_for('login') }}" role="button">立即体验</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img id="img_2" class="second-slide" src="{{ url_for('static', filename='img/carousel_two.jpg') }}" alt="图片加载失败！">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>全天候服务</h1>
+              <p>为客户提供全天候服务，让客户获得更高效率和更高质量的产品售后服务</p>
+              <p><a class="btn btn-lg btn-primary" href="{{ url_for('service') }}" role="button">了解更多</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img id="img_3" class="third-slide" src="{{ url_for('static', filename='img/carousel_three.jpg') }}" alt="图片加载失败！">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>产品优势</h1>
+              <p>深入结合行业场景，快速解决企业实际需求</p>
+              <p><a class="btn btn-lg btn-primary" href="{{ url_for('product') }}" role="button">查看详情</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+</div>
+
+    <div class="container marketing">
+
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="/static/img/service_show.jpg" alt="图片加载失败！" width="140" height="140">
+          <h2>高精度</h2>
+          <p>基于深度学习算法，独创的自制训练素材方法，经过工程师的反复测试，只为提供高精度的产品</p>
+          <p><a class="btn btn-default" href="{{ url_for('product') }}" role="button">了解详情 &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <img class="img-circle" src="/static/img/service_bg.jpg" alt="图片加载失败！" width="140" height="140">
+          <h2>高效率</h2>
+          <p>基于主流深度学习训练框架，经过几年的潜心研究，将算法对算力的要求降到最低，使得实时性得到可靠保障</p>
+          <p><a class="btn btn-default" href="{{ url_for('product') }}" role="button">了解详情 &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+          <img class="img-circle" src="/static/img/service_one.jpg" alt="图片加载失败！" width="140" height="140">
+          <h2>高服务</h2>
+          <p>致力于为客户提供全面的端到端的产品服务，为客户提供全方位的售后服务，助力工厂安全生产</p>
+          <p><a class="btn btn-default" href="{{ url_for('service') }}" role="button">了解详情 &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+      <h4 id="th1" align="center">应用场景</h4>
+        <p class="lead" style="text-indent: 2em">由于现在企业对生产安全的忽视，以及安全保护措施的滞后，大多数企业对于作业人员安全帽佩戴情况的检查依旧依赖于人工，
+            管理效率低下，且难以及时发现潜在的危险。而该系统是基于YOLOv4目标检测算法以及一些前沿技术设计的一套基于深度学习的作业人员安全帽检测系统。
+            该系统能够有效地提高安全保护的效率，降低安全防护监管的人工成本，保证作业人员的人身和财产安全。
+        </p>
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">智慧粮仓</h2>
+          <p class="lead" style="text-indent: 2em">现如今，粮仓作业安全成为了各粮仓着力重视的一环，然而与越来越现代化的生产水平不同，
+            粮仓的安全防护措施依然还处于较为落后的阶段，对于工作在特殊岗位的工作人员来说，安全帽成为了保障自身安全的第一道防线，
+            因此对于一些存在危险的仓内作业必须要求工作人员在工作区域佩戴安全帽以防止潜在危险的发生。</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="/static/img/home_one.jpg" alt="图片加载失败！">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">智慧工厂</h2>
+          <p class="lead" style="text-indent: 2em">工厂生产安全重中之重，经常面临的问题是因作业空间混乱而发生安全事故，因此安全帽的佩戴成为必要。而该系统通过CV+AI的技术手段，视频监控实时采集并进行识别，对未佩戴安全帽的作业人员给予实时告警。</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="/static/img/home_two.jpg" alt="图片加载失败！">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">智慧工地</h2>
+          <p class="lead" style="text-indent: 2em">随着我国新型城镇化的大规模推进，建筑产业高消耗、高风险、高投入、低收益的问题日益突出;
+            一线施工现场存在很多高危场景，施工现场劳务人员众多，人员素质参差不齐，亦对统一管理造成了极大的困难，更为安全埋下了隐患。
+            通过工地现场安装的高清摄像头随时随地智能检测识别未戴安全帽出入工地的人员，并报警提示。</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="/static/img/home_three.jpg" alt="图片加载失败！">
+        </div>
+      </div>
+      <hr class="featurette-divider">
+    </div>
+
+    <h4 id="th2" align="center">地址</h4>
+    <hr class="featurette-divider">
+    <div align="center">
+      <img src="/static/img/address.jpg" alt="图片加载失败！" width="1519" height="500" >
+    </div>
+    <br>
+{% include 'common/footer.html' %}
+{%- endblock content %}
+
+{% block scripts %}
+    {{super()}}
+    <script src="{{ url_for('static', filename='js/ie8-responsive-file-warning.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ie-emulation-modes-warning.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.5.1.js') }}"></script>
+    <script>window.jQuery || document.write('<script src="app/static/js/jquery.min.js"><\/script>')</script>
+    <script src="{{ url_for('static', filename='js/holder.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+{%- endblock scripts %}

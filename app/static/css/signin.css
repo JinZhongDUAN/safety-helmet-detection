@@ -1,0 +1,11 @@
+body
+{
+	margin: 0;
+	padding: 0;
+    overflow: hidden;
+	background-image: url(../img/bgimg.jpg);	/* 背景图片 */
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+	background-repeat: no-repeat;	/* 背景图片不重复 */
+}

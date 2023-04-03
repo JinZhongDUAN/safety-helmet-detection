@@ -1,0 +1,48 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    {{super()}}
+{% endblock title %}
+
+{% block metas %}
+    {{super()}}
+{%- endblock metas %}
+
+{%- block styles %}
+    {{super()}}
+    <link rel="shortcut icon" href="#" />
+{%- endblock styles %}
+
+{% block navbar %}
+    {% include 'common/header.html' %}
+{%- endblock navbar %}
+
+{% block content -%}
+    <div align="center" style="margin-top: 50px" >
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-info" style="color: #428bca">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    {% block app_content %}
+    {% endblock app_content %}
+
+{%- endblock content%}
+
+{% block footer %}
+    {% include "common/footer.html" %}
+{% endblock footer %}
+
+{% block scripts %}
+    {{super()}}
+{%- endblock scripts %}

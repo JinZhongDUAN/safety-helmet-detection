@@ -1,0 +1,76 @@
+{% extends 'common/base.html' %}
+{%- block styles %}
+    {{super()}}
+    <style>
+        #tp1,#tp2{
+            text-align: justify;
+            text-indent: 36px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        #th1,#th2,#th3{
+            font-weight: bold;
+        }
+        #case_one,#case_two,#case_three,#case_four{
+            width: 500px;
+            height: 300px;
+            align-self: center;
+        }
+        #p1{
+            position: absolute;
+            left: 150px;
+            top: 150px;
+            color: white;
+        }
+        #p2{
+            position: absolute;
+            left: 150px;
+            top: 210px;
+            color: white;
+        }
+    </style>
+{%- endblock styles %}
+
+{% block navbar %}
+    {% include 'common/homeheader.html' %}
+{%- endblock navbar %}
+
+{% block content -%}
+<div style="position: relative" align="center">
+    <img src="/static/img/case_bg.jpg" alt="图片加载失败！" width="1519" height="400" >
+    <p id="p1" style="font-size: 30px">用卓越的智能视觉算法赋能商业</p>
+    <p id="p2" style="font-size: 20px">通过CV+AI的技术手段，利用视频监控实时采集并进行识别，
+        一旦发现违规自动报警。及时发现并制止违规现象，解决安全隐患</p>
+</div>
+<div>
+    <h1 align="center">案例展示</h1><br>
+    <h4 id="th1" align="center">项目背景</h4><br>
+    <div class="container">
+        <p id="tp1">现如今，粮仓作业安全成为了各粮仓着力重视的一环，安全帽作为作业人员最基本的个体防护装备，
+            特别是对于工作在特殊岗位的工作人员来说，安全帽成为了保障自身安全的第一道防线，
+            对作业人员的生命安全具有重要意义，因此，
+            对于一些存在危险的粮仓内作业必须要求工作人员在工作区域佩戴安全帽以防止潜在危险的发生。</p>
+        <br>
+        <p id="tp2">随着深度学习的目标检测算法不断发展与成熟，尤其在与计算机视觉相结合的方向上取得了跨越式的进展，
+            为实现粮仓内作业人员安全帽智能化实时检测提供了技术保障。</p><br>
+    </div>
+    <h4 id="th2" align="center">视频案例</h4><br>
+    <div align="center">
+        <video width="1000" controls>
+            <source src="/static/video/视频案例.mp4" type="video/mp4" title="视频">
+            您的浏览器不支持该视频！。
+        </video>
+    </div>
+    <br>
+    <h4 id="th3" align="center">图片案例</h4><br>
+    <div align="center">
+        <img id="case_one" src="/static/img/case_one.jpg" title="识别案例" alt="图片加载失败！">
+        <img id="case_two" src="/static/img/case_two.jpg" title="识别案例" alt="图片加载失败！">
+        <br>
+        <img id="case_three" src="/static/img/case_three.jpg" title="识别案例" alt="图片加载失败！">
+        <img id="case_four" src="/static/img/case_four.jpg" title="识别案例" alt="图片加载失败！">
+    </div>
+    <br>
+</div>
+{% include "common/footer.html" %}
+{%- endblock content%}

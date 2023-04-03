@@ -1,0 +1,73 @@
+{% extends 'common/base.html' %}
+{%- block styles %}
+    {{super()}}
+    <style>
+        #tp1,#tp2,#tp3,#tp4,#tp5,#tp6{
+            text-align: justify;
+            text-indent: 36px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        #th1,#th2,#th3,#th4{
+            font-weight: bold;
+        }
+        #p1{
+            position: absolute;
+            left: 150px;
+            top: 150px;
+            color: white;
+        }
+        #p2{
+            position: absolute;
+            left: 150px;
+            top: 210px;
+            color: white;
+        }
+    </style>
+{%- endblock styles %}
+
+{% block navbar %}
+    {% include 'common/homeheader.html' %}
+{%- endblock navbar %}
+
+{% block content -%}
+<div style="position: relative" align="center">
+    <img src="/static/img/about_bg.jpg" alt="图片加载失败！" width="1519" height="400" >
+    <p id="p1" style="font-size: 30px">用卓越的智能视觉算法赋能商业</p>
+    <p id="p2" style="font-size: 20px">可深信息打造了国内领先的计算机视觉算法平台，
+        为企业提供最深入、最丰富、最全面的——正觉智能</p>
+</div>
+<div>
+    <h1 align="center">关于我们</h1>
+    <h4 id="th1" class="container">学校简介</h4><br>
+    <div class="container">
+        <p id="tp1">河南工业大学(Henan University of Technology)位于河南省郑州市，是河南省人民政府和国家粮食局共建高校、
+            河南省特色骨干大学建设高校、教育部本科教学工作水平评估优秀高校、中国政府奖学金来华留学生接收院校，
+            入选2011计划、国家级新工科研究与实践项目、中西部高校基础能力建设工程、卓越工程师教育培养计划、卓越农林人才教育培养计划、
+            国家级大学生创新创业训练计划、国家级专业技术人员继续教育基地。</p>
+        <br>
+        <p id="tp2">我们将人工智能作为未来的发展方向，从15年初第一款产品推出以来，我们不断研究和借鉴国内外前沿技术，与时俱进，
+        产品经受住了诸多项目的考验。同时我们也在努力为客户提供更多更好超值的产品和服务。</p><br>
+    </div>
+    <h4 id="th2" class="container">团队介绍</h4><br>
+    <div class="container">
+        <p id="tp3">我们目前拥有50多人的专业AI研发团队，包括来自阿里、腾讯、旷视科技、深鉴科技的专家工程师、中科院学者等业界精英，
+            专注于AI应用在工业制造、智慧园区、交通安全等众多领域的场景落地。</p><br>
+        <p id="tp4">我们的研发团队来源于中科院、北京大学、华中科技大学等众多国内外一流高校，90%成员拥有通信工程、人工智能、电子自动化、
+            以及软件工程等计算机相关专业的博士学位，团队核心成员在计算机视觉AI领域深耕多年，
+            拥有众多原创性技术研发成果，多次获得上海市创新创业优胜奖励。</p><br>
+    </div>
+
+    <h4 id="th3" class="container">应用场景</h4><br>
+    <div class="container">
+        <p id="tp5">我们在12个行业大类拥有超过100种细分的计算机视觉智能算法产品。这些算法产品针对不同的行业细分需求，基于场景的实际应用情况，
+            做出了大量的定制化开发,识别准确率平均达到90%以上，积累了丰富的行业经验。</p><br>
+    </div>
+    <h4 id="th4" class="container">企业文化</h4><br>
+    <div class="container">
+        <p id="tp6">创新、共赢是我们的企业文化；专业，高效，是我们的创业理念。2021年我们将与诸多合作伙伴携手共进，
+            立足北京，放眼全社会，努力在公共安全领域贡献自己的一份力量。</p><br>
+    </div>
+</div>
+{% include "common/footer.html" %}
+{%- endblock content%}

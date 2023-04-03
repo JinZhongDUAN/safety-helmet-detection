@@ -1,0 +1,74 @@
+{% extends "common/base.html" %}
+{% block title %}
+    Flask APP
+{% endblock title %}
+
+{%- block metas %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{%- endblock metas %}
+
+{%- block styles %}
+    {{super()}}
+    <link href="{{ url_for('static', filename='css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/dashboard.css') }}" rel="stylesheet">
+{%- endblock styles %}
+
+{% block app_content %}
+<body style="overflow: hidden">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#" onclick="showAtRight('/homepage')">首页<span class="sr-only">(current)</span></a></li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">安全帽检测<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" onclick="showAtRight('/image_detection')" style="color: #1e73be">图片检测</a></li>
+                    <li><a href="#" onclick="showAtRight('/video_detection')" style="color: #1e73be">视频检测</a></li>
+                    <li><a href="#" onclick="showAtRight('/camera_detection')" style="color: #1e73be">摄像头检测</a></li>
+                  </ul>
+              </li>
+            <li><a href="#" onclick="showAtRight('/personal_information/{{current_user.username}}')">个人信息</a></li>
+            <li><a href="#" onclick="showAtRight('/change_password/{{current_user.username}}')">修改密码</a></li>
+            <li><a href="#" onclick="showAtRight('/help')">帮助</a></li>
+            <li><a href="#" onclick="showAtRight('/test')">测试</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div id="content">
+          {% include 'main/homepage.html' %}
+      </div>
+    </div>
+</body>
+{% endblock app_content %}
+
+{% block scripts %}
+    {{super()}}
+    <script type="text/javascript">
+        function showAtRight(url){
+            $.ajax({
+                type :"GET",
+                url : url,
+                dataType:"html",
+                success : function(data) {//返回数据根据结果进行相应的处理
+                    $("#content").html(data);
+                },
+                error:function(){
+                    $("#content").html("获取数据失败！");
+                }
+            });
+        }
+    </script>
+    <script src="{{ url_for('static', filename='js/ie-emulation-modes-warning.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.5.1.js') }}"></script>
+    <script>window.jQuery || document.write('<script src="app/static/js/jquery.min.js"><\/script>')</script>
+
+    <script src="{{ url_for('static', filename='js/holder.min.js') }}"></script>
+
+    <script src="{{ url_for('static', filename='js/ie10-viewport-bug-workaround.js') }}"></script>
+{%- endblock scripts %}

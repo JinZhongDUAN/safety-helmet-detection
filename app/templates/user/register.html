@@ -1,0 +1,61 @@
+{% extends 'common/base.html' %}
+{% block title %}
+    Register
+{% endblock title %}
+
+{%- block styles %}
+    {{super()}}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/signin.css') }}" />
+    <style>
+        input[type=button], input[type=submit] {
+            -webkit-appearance: button;
+            cursor: pointer;
+            width: 130px;
+        }
+        .form-horizontal .form-group {
+            margin-right: 0px;
+            margin-left: 0px;
+        }
+    </style>
+{%- endblock styles %}
+
+{% block content %}
+    <h1 align="center" style="margin-top: 150px; color: white">注册</h1>
+    <h5 align="center"><a href="{{ url_for('login') }}" style="color: white">已有账号去登录</a></h5>
+    <div align="center">
+        <div align="left" style="width: 280px; height: 150px; color: white">
+            <!--<form action="{{ url_for('register') }}" method="post" class="form" role="form">
+                &lt;!&ndash;input id="csrf_token" name="csrf_token" type="hidden" value="IjkyOGZkOGUwZTI3YmQwYTYzY2EwNDExM2I2MzM4ODMxMDQ1NjkyYzgi.YFyBUA.5qv0X-V0JO11rS0O20ZxT1iZJbQ"&ndash;&gt;
+
+                <div class="form-group  required"><label class="control-label" for="username">账号</label>
+                    <input class="form-control" id="username" name="username" required type="text" value="">
+                </div>
+                <div class="form-group  required"><label class="control-label" for="email">邮箱</label>
+                    <input class="form-control" id="email" name="email" required type="text" value="">
+                </div>
+
+                <div class="form-group  required"><label class="control-label" for="password">密码</label>
+                    <input class="form-control" id="password" name="password" required type="password" value="">
+                </div>
+                <div class="form-group  required"><label class="control-label" for="confirm">确认密码</label>
+                    <input class="form-control" id="confirm" name="confirm" required type="password" value="">
+                </div>
+                <input class="btn btn-default" style="width: 140px" id="submit" name="submit" type="submit" value="注册">
+                <input class="btn btn-default" id="reset" style="width: 140px; margin-left: 15px" name="reset" type="reset" value="取消">
+                {{ form.csrf_token }}
+            </form>-->
+            <form class="form form-horizontal" method="post" role="form">
+                {% import 'bootstrap/wtf.html' as wtf %}
+                {{ form.hidden_tag() }}
+                {{ wtf.form_errors(form, hiddens="only") }}
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.email) }}
+                {{ wtf.form_field(form.password) }}
+                {{ wtf.form_field(form.confirm) }}
+                {{ wtf.form_field(form.submit) }}
+                <input class="btn btn-default" id="reset" style="width: 130px; margin-left: 15px" name="reset" type="reset" value="取消">
+            </form>
+        </div>
+    </div>
+    {{super()}}
+{% endblock %}

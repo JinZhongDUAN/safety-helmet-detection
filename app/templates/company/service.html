@@ -1,0 +1,112 @@
+{% extends 'common/base.html' %}
+{%- block styles %}
+    {{super()}}
+    <style>
+        #tp1,#tp2,#tp3,#tp4,#tp5,#tp6{
+            text-align: justify;
+            text-indent: 36px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        #th1,#th2,#th3{
+            font-weight: bold;
+        }
+        #p1{
+            position: absolute;
+            left: 150px;
+            top: 150px;
+            color: white;
+        }
+        #p2{
+            position: absolute;
+            left: 150px;
+            top: 210px;
+            color: white;
+        }
+    </style>
+{%- endblock styles %}
+
+{% block navbar %}
+    {% include 'common/homeheader.html' %}
+{%- endblock navbar %}
+
+{% block content -%}
+<div style="position: relative" align="center">
+    <img src="/static/img/service_bg.jpg" alt="图片加载失败！" width="1519" height="400" >
+    <p id="p1" style="font-size: 30px">用卓越的智能视觉算法赋能商业</p>
+    <p id="p2" style="font-size: 20px">围绕市场上的各类工厂使用商提供高质量的产品服务，
+        为工厂等重要场所的生产安全保驾护航</p>
+</div>
+<div class="container">
+    <h1 align="center">服务</h1><br>
+    <h4 id="th1" align="center">简介</h4><br>
+    <div class="container">
+        <p id="tp1">致力于为客户提供全面的端到端的产品服务，多年项目经验沉淀可为客户网点升级提供咨询服务；
+            结合全国线上平台、线下资源布局，根据客户需求可提供网点售后服务，为客户提供全方位的售后服务，
+            让客户获得更高效率和更高质量的产品售后服务，助力工厂安全生产。</p><br>
+    </div>
+
+    <div class="container" style="position: relative">
+        <img src="/static/img/service_show.jpg" width="1140">
+        <p style="position: absolute; left: 200px; top: 150px; color: white; font-size: 25px">让客户满意</p>
+        <p style="position: absolute; left: 250px; top: 200px; color: white; font-size: 25px">才是我们的最终目的</p>
+    </div>
+    <br>
+    <h4 id="th2" align="center">服务范围</h4><br>
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">电话热线服务</h2>
+          <p id="tp2">全年365天、每周7x24小时400电话服务（400-099-6608）及公司电话热线（010-58614775）服务支持。
+              用户可以在直接以电话联络公司技术工程师，询问问题解决之道，报告产品瑕疵，询问文件说明，寻求技术指导等问题。</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="/static/img/service_one.jpg" alt="图片加载失败！">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">远程技术支持服务</h2>
+          <p id="tp3">公司建立技术支持与响应中心，设置专人进行7×24小时值班。
+              本公司在用户授权的情况下，可及时为用户提供远程在线故障诊断、分析和解决。</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="/static/img/service_two.jpg" alt="图片加载失败！">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">现场支持服务</h2>
+          <p id="tp4">在需要的情况下，本公司将派经验丰富的技术工程师及时到现场为用户提供服务。
+              公司的技术工程师将置身于用户环境中，细致入微地体验系统运行状况，与用户面对面的交流探讨，进行可靠、有效的故障预测、问题追踪、异常排除、系统优化。</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" src="/static/img/service_three.jpg" alt="图片加载失败！">
+        </div>
+    </div>
+
+    <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">跟踪回访服务</h2>
+          <p id="tp5">提供用户跟踪服务，随时记录用户的问题，并尽快解决问题，项目完成后将不定期回访用户。
+              定期地向用户寄资料，提供新功能、新技术和新动向的介绍。</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" src="/static/img/service_four.jpg" alt="图片加载失败！">
+        </div>
+    </div>
+    <br>
+    <h4 id="th3" align="center">写在最后</h4><br>
+    <div class="container">
+        <p id="tp6">我们针对企业用户基于自身AI研发实力及产品服务生态提供一系列解决方案，如有需要请致电我们，我们将有AI专家为您提供服务。</p>
+    </div>
+</div>
+{% include "common/footer.html" %}
+{%- endblock content%}

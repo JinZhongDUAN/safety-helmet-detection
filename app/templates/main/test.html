@@ -1,0 +1,77 @@
+<link href="{{ url_for('static', filename='css/test.css') }}" rel="stylesheet">
+<h1 class="page-header" align="center" style="margin-top: 5px">欢迎使用安全帽检测系统</h1>
+<h4 align="center"><strong>摄像头检测测试</strong><br></h4>
+<button class="button_style" style="margin-left: 280px" onclick="openMediaStreamed0()">开启</button>
+<button class="button_style" onclick="stopMediaStreamed0()">关闭</button>
+
+<button class="button_style" style="margin-left: 240px" onclick="openMediaStreamed1()">开启</button>
+<button class="button_style" onclick="stopMediaStreamed1()">关闭</button>
+
+<div align="center">
+    <canvas id="screen" width="800" height="450" style="background: #FFFFFF; border: 5px solid black;" role="img">
+        您的浏览器不支持画布元素。
+    </canvas>
+</div>
+
+
+<button class="button_style" style="margin-left: 280px" onclick="openMediaStreamed2()">开启</button>
+<button class="button_style" onclick="stopMediaStreamed2()">关闭</button>
+
+<button class="button_style" style="margin-left: 240px" onclick="openMediaStreamed3()">开启</button>
+<button class="button_style" onclick="stopMediaStreamed3()">关闭</button>
+
+<h4 align="center"><a href="javascript:goFullScreen();">全屏显示</a></h4>
+
+<script type="text/javascript">
+    var csv = document.getElementById('screen');
+    var content = csv.getContext('2d');
+    var image = new Image();
+    var target = 'on';
+    image.src = '/static/img/file_load.png';
+    image.onload = function(){
+         content.drawImage(image, 0, 0, 400, 225);
+         content.drawImage(image, 400, 0, 400, 225);
+         content.drawImage(image, 0, 225, 400, 225);
+         content.drawImage(image, 400, 225, 400, 225);
+    }
+
+    function goFullScreen(){
+    var canvas = document.getElementById("screen");
+    if(canvas.requestFullScreen)
+        canvas.requestFullScreen();
+    else if(canvas.webkitRequestFullScreen)
+        canvas.webkitRequestFullScreen();
+    else if(canvas.mozRequestFullScreen)
+        canvas.mozRequestFullScreen();
+    }
+
+    function openMediaStreamed0() {
+        alert("资源加载中，请稍等一回儿！")
+        image.src = "{{url_for('camera_detection_action')}}";
+        image.onload = function () {
+            content.drawImage(image, 0, 0, 400, 225);
+        }
+    }
+    function stopMediaStreamed0() {
+        target = 'off';
+        image.src = "/static/img/file_load.png";
+    }
+    function openMediaStreamed1() {
+        alert("没有多余摄像头，抱歉！")
+    }
+    function stopMediaStreamed1() {
+        image.src = "/static/img/file_load.png";
+    }
+    function openMediaStreamed2() {
+        alert("没有多余摄像头，抱歉！")
+    }
+    function stopMediaStreamed2() {
+        image.src = "/static/img/file_load.png";
+    }
+    function openMediaStreamed3() {
+        alert("没有多余摄像头，抱歉！")
+    }
+    function stopMediaStreamed3() {
+        image.src = "/static/img/file_load.png";
+    }
+</script>

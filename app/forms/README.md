@@ -1,0 +1,6 @@
+flaskweb表单
+RegisterForm
+LoginForm
+PasswordResetRequestForm
+ResetPasswordForm
+ChangePasswordForm
