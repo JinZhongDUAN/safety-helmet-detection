@@ -1,5 +1,5 @@
 # safety-helmet-detection
-基于YOLOv4的安全帽检测系统
+基于YOLOv4的安全帽检测系统（tensorflow）
 
 ![image](https://user-images.githubusercontent.com/105783906/229492522-b2d7aab3-6206-45d7-9f2e-824dfb77732a.png)
 
