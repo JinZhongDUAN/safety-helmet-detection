@@ -1,6 +1,8 @@
 # safety-helmet-detection
 基于YOLOv4的安全帽检测系统（tensorflow）
+
 本系统基于YOLOv4目标检测算法，采用开源的安全帽检测数据集和预训练权重不断进行迭代训练。最后，采用轻量型的Flask Web开发框架，将训练好的模型部署到Web服务中。
+
 ![image](https://user-images.githubusercontent.com/105783906/229492522-b2d7aab3-6206-45d7-9f2e-824dfb77732a.png)
 
 ![image](https://user-images.githubusercontent.com/105783906/229491205-f22d5569-f58b-44a8-8454-53d64d4bcdc5.png)
