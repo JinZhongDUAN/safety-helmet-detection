@@ -33,19 +33,33 @@
 ## 3、环境
 
 tensorflow
+
 flask
+
 flask-bootstrap
+
 flask-sqlalchemy
+
 flask-mysqldb
+
 flask-bcrypt
+
 flask-login
+
 Flask-WTF
+
 flask-mail
+
 PyJWT
+
 PIL
+
 scipy
+
 numpy
+
 opencv-python
+
 wtforms
 
 注意版本之间的依赖问题。
